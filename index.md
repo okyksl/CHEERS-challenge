@@ -1,7 +1,5 @@
 # What's the challenge?
 
-Description goes here.
-
 ## Background
 
 Over the past 3 years, humanitarian information analysts have been using an open source platform called DEEP to facilitate collaborative, and joint analysis of unstructured data. The aim of the platform is to provide insights from years of historical and in-crisis humanitarian text data. The platform allows users to upload documents and classify text snippets according to predefined humanitarian target labels, grouped into and referred to as analytical frameworks. DEEP is now successfully functional in several international humanitarian organizations and the United Nations across the globe.
