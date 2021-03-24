@@ -8,6 +8,8 @@ DFS staff is composed of experts from the humanitarian information management an
 
 DFS also focuses on creation of data centric web applications, websites and mobile applications to support humanitarian organizations. When building software, DFS focuses on the intersection between data automation processes powered by Artificial Intelligences and human knowledge and skills, in particular when one can help the other to execute analysis.
 
+More information on Data Friendly Space and its projects can be found [here](https://datafriendlyspace.org/).
+
 ## The Product
 
 DFS is the technical host of the Data Entry and Exploration Platform (thedeep.io), a tool used by humanitarians all over the world to monitor and assess crises. Over the past 4 years, humanitarian information analysts have been using the DEEP to facilitate collaborative, and joint analysis of unstructured data. The aim of the platform is to provide insights from years of historical and in-crisis humanitarian text data. The platform allows users to upload documents and classify text snippets according to predefined humanitarian target labels, grouped into and referred to as analytical frameworks. Tagging this data leads to the structuring of large volumes of information that enables effective analysis of the humanitarian conditions of the populations of interest and empowers humanitarians to identify information gaps and to provide sound recommendations in terms of needs assessment strategies and response plans. DEEP is now successfully functional in several international humanitarian organizations and the United Nations across the globe.
@@ -53,7 +55,7 @@ The provided datasets are intended for non-commercial research purposes to promo
 If you have any questions regarding technical aspects of the dataset, or how to obtain it, please contact us:
 * DEEP Innovation Lead: jean@datafriendlyspace.org
 * NLP Researcher: abdullah@datafriendlyspace.org
-* NLP Advisor: 
+* NLP Advisor: [Navid Rekab-Saz](http://navid-rekabsaz.com/)
 
 
 > NOTE: [Markdown documentation](https://www.markdownguide.org/basic-syntax/)
