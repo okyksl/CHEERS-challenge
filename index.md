@@ -1,4 +1,5 @@
 # Who is Data Friendly Space?
+![image](https://user-images.githubusercontent.com/71701125/112319641-8ea04b80-8cae-11eb-8a09-d6ee15d17d0a.png)
 
 ## The Organisation
 
@@ -18,6 +19,7 @@ More information on the DEEP and how it is being used can be found here:
 *	[DEEP Website](https://www.thedeep.io/)
 *	[DEEP YouTube channel](https://www.youtube.com/channel/UCO3naDryeQIFny6BsEJwCaA)
 *	[IFRC tutorial for conducting Needs Assessments with DEEP](https://deephelp.zendesk.com/hc/en-us/articles/360041904812-4-DEEP-Using-the-DEEP-Platform-)
+![Deep Logo w Text - Horiz - Color](https://user-images.githubusercontent.com/71701125/112319706-9cee6780-8cae-11eb-9ea5-da96e2935e27.png)
 
 # What's the challenge?
 
@@ -29,10 +31,10 @@ While DEEP comes with a generic analytical framework, each organization may also
 
 In 2020 DFS partnered with IMMAP, an international not-for-profit organization that provides information management services to humanitarian and development partners, in the COVID-19 Situational Analysis Project. The aim of the project is to provide the wider humanitarian community with timely and comprehensive information on the spread of the COVID-19 pandemic accross 6 countires: Syria, Bangladesh, Nigeria, the Democratic Republic of the Congo, Burkina-Faso and Colombia.
 
-More information on the project can be found [here](https://immap.org/news/covid-19-situational-analysis-project-in-six-countries/).![Deep Logo w Text - Horiz - Color](https://user-images.githubusercontent.com/71701125/112317824-b5f61900-8cac-11eb-94ca-eb9879d5df62.png)
-
+More information on the project can be found [here](https://immap.org/news/covid-19-situational-analysis-project-in-six-countries/).
 
 In this challenge, participants will focus on the analysis of text snippets that have been tagged inside the Sectoral Information matrix of the DFS/IMMAP analytical framework.
+![AF2 copy](https://user-images.githubusercontent.com/71701125/112320895-bf34b500-8caf-11eb-8266-e00ece292633.png)
 
 The dataset provided contains ..... .
 Participants are asked to build build the following:
