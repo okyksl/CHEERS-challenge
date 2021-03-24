@@ -43,7 +43,9 @@ Participants are asked to build build the following:
 
 ## The Dataset
 
-## Evaluation Methods
+## Submission
+
+## Evaluation
 
 ## Terms and Conditions
 
@@ -58,6 +60,8 @@ If you have any questions regarding technical aspects of the dataset, or how to 
 * DEEP Innovation Lead: jean@datafriendlyspace.org
 * NLP Researcher: abdullah@datafriendlyspace.org
 * NLP Advisor: [Navid Rekab-Saz](http://navid-rekabsaz.com/)
+
+
 
 
 > NOTE: [Markdown documentation](https://www.markdownguide.org/basic-syntax/)
