@@ -13,9 +13,9 @@ DFS also focuses on creation of data centric web applications, websites and mobi
 DFS is the technical host of the Data Entry and Exploration Platform (thedeep.io), a tool used by humanitarians all over the world to monitor and assess crises. Over the past 4 years, humanitarian information analysts have been using the DEEP to facilitate collaborative, and joint analysis of unstructured data. The aim of the platform is to provide insights from years of historical and in-crisis humanitarian text data. The platform allows users to upload documents and classify text snippets according to predefined humanitarian target labels, grouped into and referred to as analytical frameworks. Tagging this data leads to the structuring of large volumes of information that enables effective analysis of the humanitarian conditions of the populations of interest and empowers humanitarians to identify information gaps and to provide sound recommendations in terms of needs assessment strategies and response plans. DEEP is now successfully functional in several international humanitarian organizations and the United Nations across the globe.
 
 More information on the DEEP and how it is being used can be found here:
-*	[DEEP’s Website](https://www.thedeep.io/)
-*	[DEEP’s YouTube channel](https://www.youtube.com/channel/UCO3naDryeQIFny6BsEJwCaA)
-*	[IFRC’s tutorial for conducting Needs Assessments with DEEP](https://deephelp.zendesk.com/hc/en-us/articles/360041904812-4-DEEP-Using-the-DEEP-Platform-)
+*	[DEEP Website](https://www.thedeep.io/)
+*	[DEEP YouTube channel](https://www.youtube.com/channel/UCO3naDryeQIFny6BsEJwCaA)
+*	[IFRC tutorial for conducting Needs Assessments with DEEP](https://deephelp.zendesk.com/hc/en-us/articles/360041904812-4-DEEP-Using-the-DEEP-Platform-)
 
 # What's the challenge?
 
