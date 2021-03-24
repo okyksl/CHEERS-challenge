@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+# What's the challenge?
 
-You can use the [editor on GitHub](https://github.com/the-deep/NLP-Challenge/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Background
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Over the past 3 years, humanitarian information analysts have been using an open source platform called DEEP to facilitate collaborative, and joint analysis of unstructured data. The aim of the platform is to provide insights from years of historical and in-crisis humanitarian text data. The platform allows users to upload documents and classify text snippets according to predefined humanitarian target labels, grouped into and referred to as analytical frameworks. DEEP is now successfully functional in several international humanitarian organizations and the United Nations across the globe.
 
-### Markdown
+While DEEP comes with a generic analytical framework, each organization may also create its own custom framework based on the specific needs of its domain. In fact, while there is a large conceptual overlap for humanitarian organizations, various domains define slightly different analytical frameworks to describe their specific concepts. These differences between the analytical frameworks in different domains can still contain various degrees of conceptual (semantic) linkages, for instance on sectors such as Food Security and Livelihoods, Health, Nutrition, and Protection.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Challenge
 
-```markdown
-Syntax highlighted code block
+Second header details
+Sample python code
 
-# Header 1
-## Header 2
-### Header 3
+```python
+import os
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+print(os)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+|Table Header 1|Table Header 2|
+|---|---|
+|Data 1|Data 2|
+|Data 3|Data 4|
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/the-deep/NLP-Challenge/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+> NOTE: [Markdown documentation](https://www.markdownguide.org/basic-syntax/)
