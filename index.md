@@ -36,7 +36,8 @@ More information on the project can be found [here](https://immap.org/news/covid
 In this challenge, participants will focus on the analysis of text snippets that have been tagged inside the Sectoral Information matrix of the DFS/IMMAP analytical framework.
 ![AF2 copy](https://user-images.githubusercontent.com/71701125/112320895-bf34b500-8caf-11eb-8266-e00ece292633.png)
 
-The dataset provided contains ..... .
+The dataset provided contains 3238 documents in English, 1301 in French and 689 in Spanish, each respectively with 215979, 144793, 129077 labeled sentences, for a total of 5228 documents and 489849 labeled sentences.
+
 Participants are asked to build build the following:
   1. A **sentence extraction model** that predicts whether a sentence in a given document is **relevant** and belongs in the Secotral Information matrix or not
   2. A **classifier** that will predict the sector of a sentence that belongs in the Secotral Information matric
@@ -61,7 +62,7 @@ If you have any questions regarding technical aspects of the dataset, or how to 
 * NLP Researcher: abdullah@datafriendlyspace.org
 * NLP Advisor: [Navid Rekab-Saz](http://navid-rekabsaz.com/)
 
-
+ ![image](https://user-images.githubusercontent.com/71701125/112473998-53198600-8d6f-11eb-908c-060ae568226c.png)
 
 
 > NOTE: [Markdown documentation](https://www.markdownguide.org/basic-syntax/)
