@@ -1,6 +1,12 @@
 # Welcome
 
-TODO: 1-2 sentences about this page, the chllange, and organizer (DFS) . use the word natural language processing (NLP)
+The DEEP project provides effective solutions to analyze and harvest data from secondary sources such as news articles, social media, and reports that are used by responders and analysts in humanitarian crises. During crises, rapidly identifying important information from the constantly-increasing data is crucial to understand the needs of affected populations and to improve evidence-based decision making. The DEEP has been used by many organisations in multiple crisis contexts, such as:
+* The [monitoring of the impact of cyclone Idai and Kenneht in Mozambique, Malawi and Zimbabwe](https://media.ifrc.org/wp-content/uploads/sites/5/2019/07/201907-MOZ-MovementHandOut.pdf) by the Red Cross and Red Crescent Movement
+* The [UNHCR Coordination Platform](https://r4v.info/en/situations/platform) for Refugees and Migrants from Venezuela
+* The ACAPS secondary data review of the Rohingya influx in Bangladesh
+* The [IMMAP/DFS Situation Analysis of the impacts of COVID in Syria](https://reliefweb.int/report/syrian-arab-republic/syria-immapdfs-covid-19-situation-analysis-january-2021)
+
+Data Friendly Space is hosting this challenge to explore how the latest advances in Natural Language Processing can benefit the DEEP and enhance its user experience when it comes to tagging large amounts of unstructured information. DFS encourages anyone who is interested in advancing the applications of NLP and Machine Learning in the humanitarian sector to take part in this challenge, as the benefits would be immediately seen in helping to increase the quality of the humanitarian community’s secondary data analysis. As such, humanitarian analysts would be able to spend time doing what the human mind does best: subjective analysis of information.
 
 ## Who is Data Friendly Space?
 <img src="resources/dfs.png" alt="Deep Logo" width="150"/>
