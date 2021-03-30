@@ -92,8 +92,8 @@ TBD details about how to obtain data
 
 #### What Participants are Predicting?
 For each sentence in the test split, the participants are asked to:
-1- Predict each sentence the `is_relevant` variable,
-2- If a sentence has `is_relevant` equals to 1, predict its `sector_ids`.
+1. Predict each sentence the `is_relevant` variable,
+2. If a sentence has `is_relevant` equals to 1, predict its `sector_ids`.
 
 #### Submission File
 For each (`sentence_id`, `doc_id`) pair in the test set, you have to predict a 0/1 prediction for the `is_relevant` variable as well as a list of `sector_ids`. The file should contain a header and have the following format:
