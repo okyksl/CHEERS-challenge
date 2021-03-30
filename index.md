@@ -38,15 +38,7 @@ The day-to-day workload of DEEP is mainly based on manual tagging of the experts
 This process of selecting informative text excerpts from documents, and assigning approperiate tags is highly laborious and time consuming, while time is a decicive factor during humanitarian crises. The innovation of the DEEP relies upon leveraging recent advances in NLP to automate this process to assist experts to do what they are best at. 
 
 
-[comment]: In this challenge, participants will focus on the analysis of text snippets that have been tagged inside the Sectoral Information matrix of the DFS/IMMAP analytical framework.
-
-
-[comment]: Over the years, the DEEP has generated a dataset of over 180,000 sets of annotated snippets from approximately 85,000 documents that come from recognized humanitarian domains. These large volumes of quality training data put DFS in a unique position for the creation of high-performance NLP models that can serve the humanitarian community at large. 
-
-[comment]: While DEEP comes with a generic analytical framework, each organization may also create its own custom framework based on the specific needs of its domain: UNHCR, the UN refugee agency, might focus on protection issues of refugee populations in a given crisis while OCHA, the humanitairan coordination agency of the UN, might focus on more general and cross-sectoral issues. In fact, while there is a large conceptual overlap for humanitarian organizations, various domains define slightly different analytical frameworks to describe their specific concepts. These differences between the analytical frameworks in different domains can still contain various degrees of conceptual (semantic) linkages. For instance when it comes to the analysis of sectoral information, different organisations tend to classify information according to labels that represent the humanitarian sectors of intervention: Food Security, Livelihoods, Health, Nutrition, WASH (Water, Sanitation and Hygiene), Protection, Shelter, Education, Agriculture, Logistics and Cross for snippets that belong to multiple sectors.
-
-
-# CHEAT Challenge
+# CHEERS Challenge
 
 ## Round 1: Extraction and Classification of Humanitarian Data
 
@@ -62,15 +54,13 @@ We also provide the text of the original documents before splitting them into se
 The train/validation/test sets’ are all in English in this round. More languages are coming in future rounds.
 The structure of the provided data is as follows.
 
-    DFS_NLP_Challenge/
+    DFS_CHEERS_Challenge/
       documents_train.csv
       documents_val.csv
       documents_test.csv
       sentences_train.csv
       sentences_val.csv
       sentences_test.csv
-
-[comment]: The dataset provided contains 3430 documents in English, 1025 in French and 601 in Spanish, each respectively with 355779, 72336, 77966 labeled sentences, for a total of 5056 documents and 506093 labeled sentences.
 
 TBD details about how to obtain data
 
