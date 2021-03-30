@@ -54,31 +54,69 @@ Participants are asked to build build the following:
   1. A **sentence extraction model** that predicts whether a sentence in a given document is **relevant** and belongs in the Secotral Information matrix or not
   2. A **classifier** that will predict the sector of a sentence that belongs in the Secotral Information matric
 
-TBD: more details ... what is expected from the participants
 
 ### Dataset
 
-TDB: about the dataset, size, format, train data, validation, and test
+The primary data for the challenge is, in each provided `sentences_<split>.csv` file, the `sentence_text` column. This contains the text of analysed documents after they have been split into sentences. Each sentence is classified, by data analysts, as relevant or irrelevant (0 or 1 in the `is_relevant` column). If a sentence is marked as relevant (i.e. `is_relevant` column is 1) the `sector_ids` column may contain a list of sector ids that this sentence belongs to. Otherwise, the `sector_ids` column is an empty list. The label columns (`is_relevant` and `sector_ids` columns) are provided only for the train and validation splits of the data. Each sentence is uniquely identified by its document id (`doc_id`) and sentence id (`sentence_id`) together.
+We also provide the text of the original documents before splitting them into sentences. Participant are free to use the train and validation documents for unsupervised/semi-supervised training. It is not allowed to use the test sentences or documents for any kind of training.
+The train/validation/test sets’ are all in English in this round. More languages are coming in future rounds.
+The structure of the provided data is as follows.
 
-[comment]: The dataset provided contains 3,301 documents in English, 1,301 in French and 689 in Spanish, each respectively with 249,992, 144,793, 129,077 labeled sentences, for a total of 5,291 documents and 523,862 labeled sentences.
+    DFS_NLP_Challenge/
+      documents_train.csv
+      documents_val.csv
+      documents_test.csv
+      sentences_train.csv
+      sentences_val.csv
+      sentences_test.csv
+
+[comment]: The dataset provided contains 3430 documents in English, 1025 in French and 601 in Spanish, each respectively with 355779, 72336, 77966 labeled sentences, for a total of 5056 documents and 506093 labeled sentences.
 
 TBD details about how to obtain data
 
+#### Columns of sentences*.csv
+`doc_id`: The identifier of the sentence source document.
+`sentence_id`: A unique identifier for each sentence.
+`sentence_text`: Text of the sentence.
+`is_relevant`: Determines whether the sentence is relevant (1) or not (0).
+`sector_ids`: A list of sector ids of that this sentence belongs to. If the sector is not specified, the list is empty. Note that a sentence maybe relevant (i.e. `is_relevant` equals 1) but have an empty `sector_ids` list.
+
+#### Columns of documents*.csv
+`project_name`: We have six projects in this dataset. They are: IMMAP/DFS Syria, Bangladesh, Nigeria, Burkina Faso, RDC, and Colombia.
+`country_code`: SYR for Syria, BGD for Bangladesh, NGA for Nigeria, BFA Burkina Faso, COD for RDC, and COL for Colombia.
+`doc_id`: A unique identifier for each document.
+`doc_text`: The textual contents of each document.
+`doc_url`: A url of each document.
 
 ### Output and Evaluation
 
-#### Run File Format
+#### What Participants are Predicting?
+For each sentence in the test split, the participants are asked to:
+1- Predict each sentence the `is_relevant` variable,
+2- If a sentence has `is_relevant` equals to 1, predict its `sector_ids`.
 
-TBD
+#### Submission File
+For each (`sentence_id`, `doc_id`) pair in the test set, you have to predict a 0/1 prediction for the `is_relevant` variable as well as a list of `sector_ids`. The file should contain a header and have the following format:
+
+    doc_id, sentence_id, is_relevant, sector_ids
+    0, 0, 0, []
+    0, 1, 1, [1, 3]
+    0, 2, 0, [2, 4]
+    1, 0, 1, [0, 1, 2, 3, 4]
+    2, 0, 1, [4]
+    2, 1, 1, []
+    2, 2, 1, []
+    2, 3, 1, [1]
+    2, 4, 0, []
+
 
 #### Evaluation Metrics
+Submissions are evaluated on [F1 Score](https://en.wikipedia.org/wiki/F-score#Definition) for the `is_relevant` variable, and on Accuracy or ([Hamming Score](https://link.springer.com/chapter/10.1007/978-3-540-24775-3_5)) for `sector_ids` variable.
 
-TBD
-
-TBD after explaning the metrics, the instruction about the evaluation script 
+#### Evaluation Script
+The submissions will be evaluated using this [script](https://github.com/the-deep/NLP-Challenge/blob/main/eval.py).
 
 ### Results on Leaderboard
-
 coming soon...!
 
 # Terms and Conditions
@@ -96,6 +134,3 @@ If you have any questions regarding technical aspects of the dataset, or how to 
 * Navid Rekab-Saz (Academic Advisor): [webpage](http://navid-rekabsaz.com/)
 
 [comment]: ![image](https://user-images.githubusercontent.com/71701125/112473998-53198600-8d6f-11eb-908c-060ae568226c.png)
-
-
-[comment]: > NOTE: [Markdown documentation](https://www.markdownguide.org/basic-syntax/)
