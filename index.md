@@ -75,18 +75,18 @@ The structure of the provided data is as follows.
 TBD details about how to obtain data
 
 #### Columns of sentences*.csv
-`doc_id`: The identifier of the sentence source document.
-`sentence_id`: A unique identifier for each sentence.
-`sentence_text`: Text of the sentence.
-`is_relevant`: Determines whether the sentence is relevant (1) or not (0).
-`sector_ids`: A list of sector ids of that this sentence belongs to. If the sector is not specified, the list is empty. Note that a sentence maybe relevant (i.e. `is_relevant` equals 1) but have an empty `sector_ids` list.
+- `doc_id`: The identifier of the sentence source document.
+- `sentence_id`: A unique identifier for each sentence.
+- `sentence_text`: Text of the sentence.
+- `is_relevant`: Determines whether the sentence is relevant (1) or not (0).
+- `sector_ids`: A list of sector ids of that this sentence belongs to. If the sector is not specified, the list is empty. Note that a sentence maybe relevant (i.e. `is_relevant` equals 1) but have an empty `sector_ids` list.
 
 #### Columns of documents*.csv
-`project_name`: We have six projects in this dataset. They are: IMMAP/DFS Syria, Bangladesh, Nigeria, Burkina Faso, RDC, and Colombia.
-`country_code`: SYR for Syria, BGD for Bangladesh, NGA for Nigeria, BFA Burkina Faso, COD for RDC, and COL for Colombia.
-`doc_id`: A unique identifier for each document.
-`doc_text`: The textual contents of each document.
-`doc_url`: A url of each document.
+- `project_name`: We have six projects in this dataset. They are: IMMAP/DFS Syria, Bangladesh, Nigeria, Burkina Faso, RDC, and Colombia.
+- `country_code`: SYR for Syria, BGD for Bangladesh, NGA for Nigeria, BFA Burkina Faso, COD for RDC, and COL for Colombia.
+- `doc_id`: A unique identifier for each document.
+- `doc_text`: The textual contents of each document.
+- `doc_url`: A url of each document.
 
 ### Output and Evaluation
 
