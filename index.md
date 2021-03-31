@@ -1,3 +1,5 @@
+{% include math.html %}
+
 # Welcome
 
 The CHEERS challenge is hosted by Data Friendly Space (DFS). Our aim is to exploit the latest advances in Natural Language Processing (NLP) to assist responders and analysts in humanitarian crises for analyzing and harvesting valuable information from data. DFS encourages anyone who is interested in advancing the applications of NLP and Deep/Machine Learning in the humanitarian sector to take part in this challenge, as the benefits would be immediately seen in helping to increase the quality of the humanitarian community’s data analysis. As such, humanitarian analysts would be able to spend time doing what the human mind does best: subjective analysis of information.
@@ -126,17 +128,30 @@ The run (output) file format must be in the CSV format and have the following co
 
 Please look at [create_random_baseline.py](https://github.com/the-deep/CHEERS-challenge/blob/main/Round_1/create_random_baseline.py) for creating a random baseline for the validation set. If the data is available in the same root path as this script, the following command generated a random baseline run:
 
-    python create_baseline_random.py
+    python create_random_baseline.py
 
 ### Evaluation Metrics
-Submissions are evaluated on [F1 Score](https://en.wikipedia.org/wiki/F-score#Definition) for the `is_relevant` variable, and on Accuracy or [Hamming Score](https://link.springer.com/chapter/10.1007/978-3-540-24775-3_5) for the `sector_ids` variable. Finally, to be able to sort the submissions in the leaderboard, we combine these two scores by formulating a new score called `HumImpact` which stands for *Humanitarian Impact*. `HumImpact` is calculated as: `HumImpact = 0.5*F1_score + 0.5*Accuracy`.
+Run files are evaluated on two scores. First, the `is_relevant` predictions are evaluation with Macro [F1 Score](https://en.wikipedia.org/wiki/F-score#Definition). Then, the sectoral variable of the sentences with predicted `is_relevant=1` is evaluated using Accuracy based on Hamming Score as used in [this paper](https://link.springer.com/chapter/10.1007/978-3-540-24775-3_5). According to this formulation, accuracy is defined as:
 
-Please note the following about the way we calculate Hamming Score that are done for simplifying this challenge round.
-1. Hamming Score is only calculated for sentences with `is_relevant` *predicted* as `1`.
-2. Sentences with ground truth values of `[]` for the `sector_ids` variable, but the participant predicts other than `-1` will not be penalized.
-3. Because participants are asked to predict only one label from the possible labels for `sector_ids`, the submssions are always penalized for setneces with multiple labels. For example, if a sentence has a value for `sector_ids` of `[2, 4]` and the participant predicts `2` then the accuracy of this example will be `1/2`.
+$$Accuracy = \frac{1}{n}\sum_{i=1}^{N}{\frac{\lvert Y_i\cap \{z_i\} \rvert}{\lvert Y_i\cup \{z_i\} \rvert}}$$
 
-The submissions will be evaluated using this [script](https://github.com/the-deep/NLP-Challenge/blob/main/eval.py).
+where $$Y_i$$ is the set of classes in the ground truth data, $$z_i$$ is the predicted class. Please consider that Accuracy in this formulation is only calculated for sentences with predicted `is_relevant=1`. Also, the sentences in the ground truth with `is_relevant=1` but without any sectoral information `sector_ids=[]` are ignored during evaluation. Finally, since only one sector can be provided in the run file, even if the sectors of all sentences are correctly classified, the Accuracy value will not be equal to one, as some sentences have multiple sectors. For example, if a sentence has `sector_ids=[2, 4]` in ground truth, and the predicted `sector_id` in the run file is `2`, then the Accuracy of this sentence would be equal to `1/2`.
+
+
+Finally, to be able to measure the overall performance of a system, we combine the F1 Score and Accuracy and introduce `HumImpact` – the *Humanitarian Impact* evalution metric. `HumImpact` is calculated as: 
+
+$$HumImpact = 0.5*F1\_Score + 0.5*Accuracy$$
+
+To execute the evaluation for a run file, please use this [Python script](https://github.com/the-deep/NLP-Challenge/blob/main/eval.py). As an example, the above created random baseline can be evaluated by executing:
+
+    python evaluation.py --ground-truth-path data_round_1/sentences_en_val.csv --runfile-path runs/en_val_baseline_random.csv
+
+which outputs:
+
+    Macro-averaged F1 score for is_relevant variable is: 49.92
+    Accuracy for sector_ids variable is: 44.57
+    HumImpact Score is: 47.24
+    {'relevance_f1_score_macro': 0.4992029079372476, 'sectorids_accuracy': 0.4456756756756766, 'HumImpact': 0.4724392918064621}
 
 ### Results on Leaderboard
 coming soon...!

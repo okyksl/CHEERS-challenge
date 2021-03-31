@@ -1,3 +1,4 @@
+markdown: kramdown
 theme: jekyll-theme-cayman
 title: CHEERS Challenge
 description: Classification in Humanitarian EmergEncy ResponSe
