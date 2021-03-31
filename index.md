@@ -34,7 +34,7 @@ DFS also focuses on creation of data centric web applications, websites and mobi
 ## <a name="section-background-deep"></a>Product: DEEP Platform
 <img src="resources/thedeep.png" alt="Deep Logo" width="150"/>
 
-DFS is the technical host of the Data Entry and Exploration Platform (DEEP, [thedeep.io](https://www.thedeep.io/)), a tool used by humanitarians all over the world to monitor and assess crises. The DEEP project provides effective solutions to analyze and harvest data from secondary sources such as news articles, social media, and reports that are used by responders and analysts in humanitarian crises. During crises, rapidly identifying important information from the constantly-increasing data is crucial to understand the needs of affected populations and to improve evidence-based decision making. The DEEP has been used by many organisations in multiple crisis contexts, such as:
+DFS is the technical host of the Data Entry and Exploration Platform (DEEP, [thedeep.io](https://www.thedeep.io/)), a tool used by humanitarians all over the world to monitor and assess crises. The DEEP project provides effective solutions to analyze and harvest data from secondary sources such as news articles, social media, and reports that are used by responders and analysts in humanitarian crises. During crises, rapidly identifying important information from the constantly-increasing data is crucial to understand the needs of affected populations and to improve evidence-based decision making. The DEEP has been used by many organizations in multiple crisis contexts, such as:
 * The [monitoring of the impact of cyclone Idai and Kenneht in Mozambique, Malawi and Zimbabwe](https://media.ifrc.org/wp-content/uploads/sites/5/2019/07/201907-MOZ-MovementHandOut.pdf) by the Red Cross and Red Crescent Movement
 * The [UNHCR Coordination Platform](https://r4v.info/en/situations/platform) for Refugees and Migrants from Venezuela
 * The ACAPS secondary data review of the Rohingya influx in Bangladesh
@@ -51,11 +51,11 @@ More information on the DEEP and how it is being used can be found here:
 
 ## <a name="section-background-nlp"></a>How can NLP help in humanitarian crises?
 
-The day-to-day workload of DEEP is mainly based on manual tagging of the experts, especialized in the humanitarian domain. The experts have extensive domain knowledge to understand how to use the analytical framework with its different taxonomies in order to assign the right labels to the right text snippets. Below, you can see the interface of the DFS/IMMAP analytical framework, where the experts are asked to assign approperiate classes to a selected snippet of text.
+The day-to-day workload of DEEP is mainly based on manual tagging of the experts, specialized in the humanitarian domain. The experts have extensive domain knowledge to understand how to use the analytical framework with its different taxonomies in order to assign the right labels to the right text snippets. Below, you can see the interface of the DFS/IMMAP analytical framework, where the experts are asked to assign appropriate classes to a selected snippet of text.
 
 <center><img src="resources/analytical_framework.png" alt="Analytical Framework" width="400"/></center>
 
-This process of selecting informative text excerpts from documents, and assigning approperiate tags is highly laborious and time consuming, while time is a decicive factor during humanitarian crises. The innovation of the DEEP relies upon leveraging recent advances in NLP to automate this process to assist experts to do what they are best at. 
+This process of selecting informative text excerpts from documents, and assigning appropriate tags is highly laborious and time consuming, while time is a decisive factor during humanitarian crises. The innovation of the DEEP relies upon leveraging recent advances in NLP to automate this process to assist experts to do what they are best at. 
 
 
 # <a name="section-cheers"></a> CHEERS Challenge
@@ -64,7 +64,7 @@ This process of selecting informative text excerpts from documents, and assignin
 
 In this round, we simulate the document processing procedure of analysts. In particular, given a document consisting of a number of sentences, a system is asked to:
 - First, **extract informative and relevant sentences**, and ...
-- Second, **classify the extracted sentences** according to the Secotral Information.
+- Second, **classify the extracted sentences** according to the Sectoral Information.
 
 In the following, we first explain the dataset and task, and then describe the run file format and evaluation metrics. 
 
@@ -91,7 +91,7 @@ The primary data for the challenge is available in the `sentences_<split>_en.csv
 - `sector_ids`: A list of sector ids, to which this sentence belongs to. If the sentence is not assigned to any sector, the list is empty. Note that a sentence maybe relevant (`is_relevant=1`) but have an empty `sector_ids` list. However a non-relevant sentence (`is_relevant=0`) always has an empty `sector_ids` list.
 
 
-As mentioned above, each sentence is classified by data analysts as relevant or irrelevant (`0` or `1` in the `is_relevant` column). If a sentence is marked as relevant (i.e. `is_relevant` column is `1`) the `sector_ids` column *may* contain a list of sector ids that this sentence belongs to. Otherwise, the `sector_ids` column is an empty list. The label columns (`is_relevant` and `sector_ids`) are provided only for the train and validation splits of the data. The corrsponding name of each sector is available in `immap_sector_name_to_id.json`.
+As mentioned above, each sentence is classified by data analysts as relevant or irrelevant (`0` or `1` in the `is_relevant` column). If a sentence is marked as relevant (i.e. `is_relevant` column is `1`) the `sector_ids` column *may* contain a list of sector ids that this sentence belongs to. Otherwise, the `sector_ids` column is an empty list. The label columns (`is_relevant` and `sector_ids`) are provided only for the train and validation splits of the data. The corresponding name of each sector is available in `immap_sector_name_to_id.json`.
 
 In addition, in the `documents_<split>_en.csv` files, we provide the text of the original documents, from which the sentences are extracted. Participant are free to use these original documents for any type of training they want. The document files have the following columns:
 
@@ -105,8 +105,8 @@ All documents and sentences in this round are in English.
 
 ### Task
 
-As mentioned before, this task consists of two consequative steps:
-- First, predicting whether a sentence is relvant, namely the `is_relevant` value, and ...
+As mentioned before, this task consists of two consecutive steps:
+- First, predicting whether a sentence is relevant, namely the `is_relevant` value, and ...
 - Then, for any sentence *predicted as relevant* (i.e. predicted `is_relevant=1`), output *one* `sector_id` value.
 
 Please consider that in the provided data `sector_ids` can be more than one (a multi-class multi-label setting). However, in this round, we explicitly limit the prediction of sectors to one class (a multi-class single-label setting). In fact, the users are free to exploit the one or multiple sector(s) of a sentence for training, but at inference time, only one sector should be provided.   
@@ -138,7 +138,7 @@ $$Accuracy = \frac{1}{n}\sum_{i=1}^{N}{\frac{\lvert Y_i\cap \{z_i\} \rvert}{\lve
 where $$Y_i$$ is the set of classes in the ground truth data, $$z_i$$ is the predicted class. Please consider that Accuracy in this formulation is only calculated for sentences with predicted `is_relevant=1`. Also, the sentences in the ground truth with `is_relevant=1` but without any sectoral information `sector_ids=[]` are ignored during evaluation. Finally, since only one sector can be provided in the run file, even if the sectors of all sentences are correctly classified, the Accuracy value will not be equal to one, as some sentences have multiple sectors. For example, if a sentence has `sector_ids=[2, 4]` in ground truth, and the predicted `sector_id` in the run file is `2`, then the Accuracy of this sentence would be equal to `1/2`.
 
 
-Finally, to be able to measure the overall performance of a system, we combine the F1 Score and Accuracy and introduce `HumImpact` – the *Humanitarian Impact* evalution metric. `HumImpact` is calculated as: 
+Finally, to be able to measure the overall performance of a system, we combine the F1 Score and Accuracy and introduce `HumImpact` – the *Humanitarian Impact* evaluation metric. `HumImpact` is calculated as: 
 
 $$HumImpact = 0.5*F1\_Score + 0.5*Accuracy$$
 
