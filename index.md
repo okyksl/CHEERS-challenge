@@ -60,15 +60,15 @@ This process of selecting informative text excerpts from documents, and assignin
 
 ## <a name="section-cheers-round1"></a> Round 1: Extraction and Classification of Humanitarian Data
 
-In this round, we simulate the document processing procedure of analysts. In particular, given a document consisting of a number of sentences, a system is asked to:
-- First, **extract informative and relevant sentences**, and ...
-- Second, **classify the extracted sentences** according to the Sectoral Information.
+The Round 1 of the challenge simulates the document processing procedure, normally conducted by analysts. In particular, given a document consisting of a number of sentences, a system is asked to:
+- First, **extract and select informative and relevant sentences**, and ...
+- Second, **classify the extracted sentences according to sectoral Information**.
 
-In the following, we first explain the dataset and task, and then describe the run file format and evaluation metrics. 
+In the following, we explain the dataset and task, followed by describing the run files format, and evaluation metrics. 
 
 ### Dataset
 
-The dataset of this round is available [here](https://deep-cheers-challenge.s3.amazonaws.com/data_round_1.zip). The dataset consists of the following files:
+The dataset of this round is available [here](https://deep-cheers-challenge.s3.amazonaws.com/data_round_1.zip) and consists of the following files:
 
     data_round_1/
       documents_train_en.csv
@@ -80,38 +80,41 @@ The dataset of this round is available [here](https://deep-cheers-challenge.s3.a
       immap_sector_name_to_id.json
       Terms of Use.txt
       
-The primary data for the challenge is available in the `sentences_<split>_en.csv` files, containing the information of sentences of the document. Each of these files contain the following columns: 
+The primary data for the challenge is available in the `sentences_<split>_en.csv` files. Each of these files contain the following columns: 
 
-- `doc_id`: The identifier of the document, from which the sentence is extracted.
-- `sentence_id`: The identifier of the sentence. Combined with the corresponding `doc_id`, `sentence_id` and `doc_id` form a unique id for each sentence.
+- `doc_id`: The identifier of the document, from which the sentences are extracted.
+- `sentence_id`: Sentence identifier. The Combination of `doc_id` and `sentence_id` forms a unique id for each sentence.
 - `sentence_text`: Text of the sentence.
-- `is_relevant`: Determines whether the sentence is relevant (1) or not (0) to the information need of the analyst.
-- `sector_ids`: A list of sector ids, to which this sentence belongs to. If the sentence is not assigned to any sector, the list is empty. Note that a sentence maybe relevant (`is_relevant=1`) but have an empty `sector_ids` list. However a non-relevant sentence (`is_relevant=0`) always has an empty `sector_ids` list.
+- `is_relevant` (not available in `sentences_test_en.csv`): Determines whether the sentence is relevant (`1`) or non-relevant (`0`) according to the need of the analyst. 
+- `sector_ids` (not available in `sentences_test_en.csv`): The list of sector ids. If the sentence is not assigned to any sector, the list is empty (`[]`). Note that a relevant sentence (`is_relevant=1`) might have an empty `sector_ids`, as no information about the sector of the sentence is provided. A non-relevant sentence (`is_relevant=0`) has always no information about `sector_ids=[]`.
 
 
-As mentioned above, each sentence is classified by data analysts as relevant or irrelevant (`0` or `1` in the `is_relevant` column). If a sentence is marked as relevant (i.e. `is_relevant` column is `1`) the `sector_ids` column *may* contain a list of sector ids that this sentence belongs to. Otherwise, the `sector_ids` column is an empty list. The label columns (`is_relevant` and `sector_ids`) are provided only for the train and validation splits of the data. The corresponding name of each sector is available in `immap_sector_name_to_id.json`.
+In addition to sentences, the `documents_<split>_en.csv` files provide the full text of the original documents, from which the sentences are extracted. Participant are free to use these original documents as any sort of additional data. The document files have the following columns:
 
-In addition, in the `documents_<split>_en.csv` files, we provide the text of the original documents, from which the sentences are extracted. Participant are free to use these original documents for any type of training they want. The document files have the following columns:
+- `doc_id`: The unique identifier of the document.
+- `doc_text`: The full text content of the document.
+- `doc_url`: URL of the document.
+- `project_name`: The name of the project. Current projects are IMMAP/DFS Syria, Bangladesh, Nigeria, Burkina Faso, RDC, and Colombia.
+- `country_code`: The country related to the content of the document. SYR for Syria, BGD for Bangladesh, NGA for Nigeria, BFA Burkina Faso, COD for RDC, and COL for Colombia.
 
-- `project_name`: We have six projects in this dataset. They are: IMMAP/DFS Syria, Bangladesh, Nigeria, Burkina Faso, RDC, and Colombia.
-- `country_code`: SYR for Syria, BGD for Bangladesh, NGA for Nigeria, BFA Burkina Faso, COD for RDC, and COL for Colombia.
-- `doc_id`: A unique identifier for each document.
-- `doc_text`: The textual content documents.
-- `doc_url`: A url of source documents.
-
-All documents and sentences in this round are in English.
+The corresponding name of each sector is available in `immap_sector_name_to_id.json`. All provided documents and sentences in this round are in English.
 
 ### Task
 
 As mentioned before, this task consists of two consecutive steps:
-- First, predicting whether a sentence is relevant, namely the `is_relevant` value, and ...
-- Then, for any sentence *predicted as relevant* (i.e. predicted `is_relevant=1`), output *one* `sector_id` value.
+- First, predicting whether a sentence is relevant (`is_relevant` target), and ...
+- Second, for any sentence that is predicted as relevant, predicting one sector (`sector_id` target).
 
-Please consider that in the provided data `sector_ids` can be more than one (a multi-class multi-label setting). However, in this round, we explicitly limit the prediction of sectors to one class (a multi-class single-label setting). In fact, the users are free to exploit the one or multiple sector(s) of a sentence for training, but at inference time, only one sector should be provided.   
+Please consider that in the provided data, the `sector_ids` column can provide more than one value. However, we explicitly limit the prediction of sectors to **one class**. In fact, the users are free to exploit one or multiple sector(s) of the sentences during training, while at inference time, only one sector should be provided. The exact format of the run file is explained in the following.  
 
 
 ### Run File Format
-The run (output) file format must be in the CSV format and have the following columns: `doc_id` and `sentence_id` of each sentence in the validation/test set; `0` or `1` prediction value for the `is_relevant` column; `sector_id` column is one predicted sector label if the predicted `is_relevant` is `1`, and otherwise `sector_id` is set to `-1`. For example, if the value of `sector_ids` of some sentence is `[1, 7]`, a possible run file could look like this:
+The run (output) file format is in CSV format and have the following columns: 
+- `doc_id` and `sentence_id`: indicating together the identifier of each sentence
+- `is_relevant`: the `0` or `1` prediction value for sentence relevance
+- `sector_id`: the predicted sector label if the predicted `is_relevant` is `1`, and `-1` otherwise.
+
+For example, if the value of `sector_ids` of some sentences could be between `1` to `7`, a possible run file can look like:
 
     doc_id, sentence_id, is_relevant, sector_id
     0, 0, 0, -1
@@ -120,27 +123,28 @@ The run (output) file format must be in the CSV format and have the following co
     1, 0, 1,  4
     2, 0, 1,  2
     2, 1, 1,  7
-    2, 2, 1, -1
+    2, 2, 0, -1
     2, 3, 1,  3
     2, 4, 0, -1
 
-Please look at [create_random_baseline.py](https://github.com/the-deep/CHEERS-challenge/blob/main/Round_1/create_random_baseline.py) for creating a random baseline for the validation set. If the data is available in the same root path as this script, the following command generated a random baseline run:
+The code for creating a random baseline for the validation set is provided in [create_random_baseline.py](https://github.com/the-deep/CHEERS-challenge/blob/main/Round_1/create_random_baseline.py). Considering that the data is available in the same path as this script, the following command generates the run file of this baseline:
 
     python create_random_baseline.py
 
 ### Evaluation Metrics
-Run files are evaluated on two scores. First, the `is_relevant` predictions are evaluation with Macro [F1 Score](https://en.wikipedia.org/wiki/F-score#Definition). Then, the sectoral variable of the sentences with predicted `is_relevant=1` is evaluated using Accuracy based on Hamming Score as used in [this paper](https://link.springer.com/chapter/10.1007/978-3-540-24775-3_5). According to this formulation, accuracy is defined as:
+Run files are evaluated according to three scores: First, the `is_relevant` predictions are evaluated with Macro [F1 Score](https://en.wikipedia.org/wiki/F-score#Definition). 
+
+Next, for the sentences with predicted `is_relevant=1`, their corresponding predicted sectors are evaluated using a version of Accuracy based on the Hamming Score - in a similar way as in [this paper](https://link.springer.com/chapter/10.1007/978-3-540-24775-3_5). According to this formulation, Accuracy is defined as:
 
 $$Accuracy = \frac{1}{n}\sum_{i=1}^{N}{\frac{\lvert Y_i\cap \{z_i\} \rvert}{\lvert Y_i\cup \{z_i\} \rvert}}$$
 
-where $$Y_i$$ is the set of classes in the ground truth data, $$z_i$$ is the predicted class. Please consider that Accuracy in this formulation is only calculated for sentences with predicted `is_relevant=1`. Also, the sentences in the ground truth with `is_relevant=1` but without any sectoral information `sector_ids=[]` are ignored during evaluation. Finally, since only one sector can be provided in the run file, even if the sectors of all sentences are correctly classified, the Accuracy value will not be equal to one, as some sentences have multiple sectors. For example, if a sentence has `sector_ids=[2, 4]` in ground truth, and the predicted `sector_id` in the run file is `2`, then the Accuracy of this sentence would be equal to `1/2`.
+where $$Y_i$$ is the set of labels in the ground truth data, and $$z_i$$ is the predicted class. Please consider that Accuracy in this formulation is only calculated for sentences with predicted `is_relevant=1`. Also, the sentences in the ground truth with `is_relevant=1` but without any sectoral information (`sector_ids=[]`) are ignored during calculating Accuracy. Finally, since only one sector can be provided in the run file, the overall Accuracy value will not be equal to one, as some sentences in the ground truth have multiple sectors. To elaborate it with an example, if a sentence has `sector_ids=[2, 4]` in ground truth, and the predicted `sector_id` in the run file is `2`, then the Accuracy of this sentence would be equal to `1/2`.
 
-
-Finally, to be able to measure the overall performance of a system, we combine the F1 Score and Accuracy and introduce `HumImpact` – the *Humanitarian Impact* evaluation metric. `HumImpact` is calculated as: 
+Finally, to be able to measure the overall performance of a system, we combine the F1 Score and Accuracy and introduce `HumImpact` – the *Humanitarian Impact* evaluation metric. `HumImpact` is defined as: 
 
 $$HumImpact = 0.5*F1\_Score + 0.5*Accuracy$$
 
-To execute the evaluation for a run file, please use [evaluation.py](https://github.com/the-deep/CHEERS-challenge/blob/main/Round_1/evaluation.py) script. As an example, the above created random baseline can be evaluated by executing:
+Please use [evaluation.py](https://github.com/the-deep/CHEERS-challenge/blob/main/Round_1/evaluation.py) script to evaluate the run file. The following command provides the evaluation results of the above-created random baseline:
 
     python evaluation.py --ground-truth-path data_round_1/sentences_en_val.csv --runfile-path runs/en_val_baseline_random.csv
 
