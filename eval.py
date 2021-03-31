@@ -2,7 +2,7 @@ import argparse
 from ast import literal_eval
 
 import pandas as pd
-from sklearn.metrics import f1_score
+from sklearn.metrics import precision_recall_fscore_support
 
 
 example_text = """example:
@@ -32,7 +32,6 @@ df_pred = pd.read_csv(
 
 
 def hamming_score(y_true, y_pred):
-    # This is a modified version of the original Hamming Score
     # https://link.springer.com/chapter/10.1007/978-3-540-24775-3_5
     score = 0
     empty_true = 0
@@ -80,7 +79,9 @@ y_true_relevance, y_pred_relevance = (
     df_eval["is_relevant_pred"].tolist(),
 )
 # y_pred_relevance = list(map(lambda x: -1 if pd.isna(x) else x, y_pred_relevance))
-f1_score_relevance = f1_score(y_true_relevance, y_pred_relevance, average="macro")
+_, _, f1_score_relevance, _ = precision_recall_fscore_support(
+    y_true_relevance, y_pred_relevance, average="macro", warn_for=tuple()
+)
 
 print(
     f"Macro-averaged F1 score for is_relevant variable is: {f1_score_relevance*100:.2f}"
@@ -89,7 +90,10 @@ print(
 y_true_sectorids = df_eval[df_eval["is_relevant_pred"].eq(1)]["sector_ids"].tolist()
 y_pred_sectorids = df_eval[df_eval["is_relevant_pred"].eq(1)]["sector_id"].tolist()
 # y_pred_sectorids = list(map(lambda x: [] if pd.isna(x) else x, y_pred_sectorids))
-hamming_score_sectorids = hamming_score(y_true_sectorids, y_pred_sectorids)
+if y_pred_sectorids:
+    hamming_score_sectorids = hamming_score(y_true_sectorids, y_pred_sectorids)
+else:
+    hamming_score_sectorids = 0
 print(f"Accuracy for sector_ids variable is: {hamming_score_sectorids*100:.2f}")
 
 hum_impact = 0.5 * f1_score_relevance + 0.5 * hamming_score_sectorids
