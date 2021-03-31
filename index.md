@@ -2,7 +2,7 @@
 
 # Welcome
 
-The CHEERS challenge is hosted by Data Friendly Space (DFS). Our aim is to exploit the latest advances in Natural Language Processing (NLP) to assist responders and analysts in humanitarian crises for analyzing and harvesting valuable information from data. DFS encourages anyone who is interested in advancing the applications of NLP and Deep/Machine Learning in the humanitarian sector to take part in this challenge, as the benefits would be immediately seen in helping to increase the quality of the humanitarian community’s data analysis. As such, humanitarian analysts would be able to spend time doing what the human mind does best: subjective analysis of information.
+The aim of the CHEERS challenge is to exploit the latest advances in Natural Language Processing (NLP) to assist responders and analysts in humanitarian crises for analyzing and harvesting valuable information from data. The challenge is hosted by Data Friendly Space (DFS), a non-profit organization, and is also supported by the academic researchers at the Johannes Kepler University Linz. We encourages anyone who is interested in advancing the applications of NLP and Deep/Machine Learning in the humanitarian sector to take part in this challenge, as the benefits would be immediately seen in helping to increase the quality of the humanitarian community’s data analysis. As such, humanitarian analysts would be able to spend time doing what the human mind does best: subjective analysis of information.
 
 <h2>Table of contents</h2>
 <ul>
@@ -20,8 +20,6 @@ The CHEERS challenge is hosted by Data Friendly Space (DFS). Our aim is to explo
     <a href="#section-contact"><li style="font-size:large;font-weight:bold">Contact Us</li></a>
 </ul>
 
- 
- 
 # <a name="section-background"></a>Context and Background
 
 ## <a name="section-background-dfs"></a>Who is Data Friendly Space?
@@ -51,11 +49,11 @@ More information on the DEEP and how it is being used can be found here:
 
 ## <a name="section-background-nlp"></a>How can NLP help in humanitarian crises?
 
-The day-to-day workload of DEEP is mainly based on manual tagging of the experts, specialized in the humanitarian domain. The experts have extensive domain knowledge to understand how to use the analytical framework with its different taxonomies in order to assign the right labels to the right text snippets. Below, you can see the interface of the DFS/IMMAP analytical framework, where the experts are asked to assign appropriate classes to a selected snippet of text.
+The day-to-day workload of analysts and experts with DEEP concerns manual tagging of secondary data resources. These experts have extensive domain knowledge to understand how to use the analytical framework with its different taxonomies in order to assign the right labels to the right text snippets. Below, you can see the interface of the DFS/IMMAP analytical framework, where the experts are asked to assign appropriate classes to a text snippet.
 
 <center><img src="resources/analytical_framework.png" alt="Analytical Framework" width="400"/></center>
 
-This process of selecting informative text excerpts from documents, and assigning appropriate tags is highly laborious and time consuming, while time is a decisive factor during humanitarian crises. The innovation of the DEEP relies upon leveraging recent advances in NLP to automate this process to assist experts to do what they are best at. 
+This process of selecting informative text excerpts from documents, and assigning correct tags is highly laborious and time consuming, while time is the decisive factor during humanitarian crises. The innovation of the DEEP relies upon leveraging recent advances in NLP to automate this process. 
 
 
 # <a name="section-cheers"></a> CHEERS Challenge
