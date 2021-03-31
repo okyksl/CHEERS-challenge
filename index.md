@@ -142,7 +142,7 @@ Finally, to be able to measure the overall performance of a system, we combine t
 
 $$HumImpact = 0.5*F1\_Score + 0.5*Accuracy$$
 
-To execute the evaluation for a run file, please use this [Python script](https://github.com/the-deep/NLP-Challenge/blob/main/eval.py). As an example, the above created random baseline can be evaluated by executing:
+To execute the evaluation for a run file, please use [evaluation.py](https://github.com/the-deep/CHEERS-challenge/blob/main/Round_1/evaluation.py) script. As an example, the above created random baseline can be evaluated by executing:
 
     python evaluation.py --ground-truth-path data_round_1/sentences_en_val.csv --runfile-path runs/en_val_baseline_random.csv
 
