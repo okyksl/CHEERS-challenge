@@ -1,35 +1,53 @@
 # Welcome
 
-The DEEP project provides effective solutions to analyze and harvest data from secondary sources such as news articles, social media, and reports that are used by responders and analysts in humanitarian crises. During crises, rapidly identifying important information from the constantly-increasing data is crucial to understand the needs of affected populations and to improve evidence-based decision making. The DEEP has been used by many organisations in multiple crisis contexts, such as:
+The CHEERS challenge is hosted by Data Friendly Space (DFS). Our aim is to exploit the latest advances in Natural Language Processing (NLP) to assist responders and analysts in humanitarian crises for analyzing and harvesting valuable information from data. DFS encourages anyone who is interested in advancing the applications of NLP and Deep/Machine Learning in the humanitarian sector to take part in this challenge, as the benefits would be immediately seen in helping to increase the quality of the humanitarian community’s data analysis. As such, humanitarian analysts would be able to spend time doing what the human mind does best: subjective analysis of information.
+
+<h2>Table of contents</h2>
+<ul>
+    <a href="#section-background"><li style="font-size:large;font-weight:bold">Context and Background</li></a>
+    <ul>
+        <a href="#section-background-dfs"><li style="font-size:large;font-weight:bold">Who is Data Friendly Space?</li></a>
+        <a href="#section-background-deep"><li style="font-size:large;font-weight:bold">Product: DEEP Platform</li></a>
+        <a href="#section-background-nlp"><li style="font-size:large;font-weight:bold">How can NLP help in humanitarian crises?</li></a>
+    </ul>
+    <a href="#section-cheers"><li style="font-size:large;font-weight:bold">CHEERS Challenge</li></a>
+    <ul>
+        <a href="#section-cheers-round1"><li style="font-size:large;font-weight:bold">Round 1: Extraction and Classification of Humanitarian Data</li></a>
+    </ul>
+    <a href="#section-terms"><li style="font-size:large;font-weight:bold">Terms and Conditions</li></a>
+    <a href="#section-contact"><li style="font-size:large;font-weight:bold">Contact Us</li></a>
+</ul>
+
+ 
+ 
+# <a name="section-background"></a>Context and Background
+
+## <a name="section-background-dfs"></a>Who is Data Friendly Space?
+<img src="resources/dfs.png" alt="Deep Logo" width="150"/>
+
+Data Friendly Space (DFS) is a non-profit organization based in the United States with a global presence. DFS’ guiding principle is to improve information management and analysis capacity, tools and processes in the humanitarian and development community to enable better informed and more targeted assistance. DFS staff is composed of experts from the humanitarian information management and analysis field who specialize in real time secondary data review and build humanitarian applications that support fast extraction of information from large volumes of unstructured data.
+
+DFS also focuses on creation of data centric web applications, websites and mobile applications to support humanitarian organizations. When building software, DFS focuses on the intersection between data automation processes powered by Artificial Intelligences and human knowledge and skills, in particular when one can help the other to execute analysis. More information on Data Friendly Space and its projects can be found [here](https://datafriendlyspace.org/).
+
+## <a name="section-background-deep"></a>Product: DEEP Platform
+<img src="resources/thedeep.png" alt="Deep Logo" width="150"/>
+
+DFS is the technical host of the Data Entry and Exploration Platform (DEEP, [thedeep.io](https://www.thedeep.io/)), a tool used by humanitarians all over the world to monitor and assess crises. The DEEP project provides effective solutions to analyze and harvest data from secondary sources such as news articles, social media, and reports that are used by responders and analysts in humanitarian crises. During crises, rapidly identifying important information from the constantly-increasing data is crucial to understand the needs of affected populations and to improve evidence-based decision making. The DEEP has been used by many organisations in multiple crisis contexts, such as:
 * The [monitoring of the impact of cyclone Idai and Kenneht in Mozambique, Malawi and Zimbabwe](https://media.ifrc.org/wp-content/uploads/sites/5/2019/07/201907-MOZ-MovementHandOut.pdf) by the Red Cross and Red Crescent Movement
 * The [UNHCR Coordination Platform](https://r4v.info/en/situations/platform) for Refugees and Migrants from Venezuela
 * The ACAPS secondary data review of the Rohingya influx in Bangladesh
 * The [IMMAP/DFS Situation Analysis of the impacts of COVID in Syria](https://reliefweb.int/report/syrian-arab-republic/syria-immapdfs-covid-19-situation-analysis-january-2021)
 
-Data Friendly Space is hosting this challenge to explore how the latest advances in Natural Language Processing can benefit the DEEP and enhance its user experience when it comes to tagging large amounts of unstructured information. DFS encourages anyone who is interested in advancing the applications of NLP and Machine Learning in the humanitarian sector to take part in this challenge, as the benefits would be immediately seen in helping to increase the quality of the humanitarian community’s secondary data analysis. As such, humanitarian analysts would be able to spend time doing what the human mind does best: subjective analysis of information.
 
-## Who is Data Friendly Space?
-<img src="resources/dfs.png" alt="Deep Logo" width="150"/>
-
-Data Friendly Space (DFS) is a non-profit organization based in the United States with a global presence. DFS’ guiding principle is to improve information management and analysis capacity, tools and processes in the humanitarian and development community to enable better informed and more targeted assistance.
-
-DFS staff is composed of experts from the humanitarian information management and analysis field who specialize in real time secondary data review and build humanitarian applications that support fast extraction of information from large volumes of unstructured data.
-
-DFS also focuses on creation of data centric web applications, websites and mobile applications to support humanitarian organizations. When building software, DFS focuses on the intersection between data automation processes powered by Artificial Intelligences and human knowledge and skills, in particular when one can help the other to execute analysis. More information on Data Friendly Space and its projects can be found [here](https://datafriendlyspace.org/).
-
-### Product: DEEP Platform
-<img src="resources/thedeep.png" alt="Deep Logo" width="150"/>
-
-DFS is the technical host of the Data Entry and Exploration Platform (DEEP, [thedeep.io](https://www.thedeep.io/)), a tool used by humanitarians all over the world to monitor and assess crises. Over the past 4 years, humanitarian information analysts have been using the DEEP to facilitate collaborative, and joint analysis of unstructured data. The aim of the platform is to provide insights from years of historical and in-crisis humanitarian text data. The platform allows users to upload documents and classify text snippets according to predefined humanitarian target labels, grouped into and referred to as analytical frameworks. Tagging this data leads to the structuring of large volumes of information that enables effective analysis of the humanitarian conditions of the populations of interest and empowers humanitarians to identify information gaps and to provide sound recommendations in terms of needs assessment strategies and response plans. DEEP supports global operations of a range of international humanitarian organizations and the United Nations.
+The aim of the DEEP platform is to provide insights from years of historical and in-crisis humanitarian text data. The platform allows users to upload documents and classify text snippets according to predefined humanitarian target labels, grouped into and referred to as analytical frameworks. Tagging this data leads to the structuring of large volumes of information that enables effective analysis of the humanitarian conditions of the populations of interest and empowers humanitarians to identify information gaps and to provide sound recommendations in terms of needs assessment strategies and response plans. DEEP supports global operations of a range of international humanitarian organizations and the United Nations.
 
 More information on the DEEP and how it is being used can be found here:
 *	[DEEP Website](https://www.thedeep.io/)
 *	[DEEP YouTube channel](https://www.youtube.com/channel/UCO3naDryeQIFny6BsEJwCaA)
 *	[IFRC tutorial for conducting Needs Assessments with DEEP](https://deephelp.zendesk.com/hc/en-us/articles/360041904812-4-DEEP-Using-the-DEEP-Platform-)
 
-As an example project, In 2020 DFS partnered with IMMAP, an international not-for-profit organization that provides information management services to humanitarian and development partners, in the COVID-19 Situational Analysis Project. The aim of the project is to provide the wider humanitarian community with timely and comprehensive information on the spread of the COVID-19 pandemic accross 6 countires: Syria, Bangladesh, Nigeria, the Democratic Republic of the Congo, Burkina-Faso and Colombia. More information on the project can be found [here](https://immap.org/news/covid-19-situational-analysis-project-in-six-countries/).
 
-### How NLP can help in humanitarian crises?
+## <a name="section-background-nlp"></a>How can NLP help in humanitarian crises?
 
 The day-to-day workload of DEEP is mainly based on manual tagging of the experts, especialized in the humanitarian domain. The experts have extensive domain knowledge to understand how to use the analytical framework with its different taxonomies in order to assign the right labels to the right text snippets. Below, you can see the interface of the DFS/IMMAP analytical framework, where the experts are asked to assign approperiate classes to a selected snippet of text.
 
@@ -38,56 +56,62 @@ The day-to-day workload of DEEP is mainly based on manual tagging of the experts
 This process of selecting informative text excerpts from documents, and assigning approperiate tags is highly laborious and time consuming, while time is a decicive factor during humanitarian crises. The innovation of the DEEP relies upon leveraging recent advances in NLP to automate this process to assist experts to do what they are best at. 
 
 
-# CHEERS Challenge
+# <a name="section-cheers"></a> CHEERS Challenge
 
-## Round 1: Extraction and Classification of Humanitarian Data
+## <a name="section-cheers-round1"></a> Round 1: Extraction and Classification of Humanitarian Data
 
-Participants are asked to build build the following:
-  1. A **sentence extraction model** that predicts whether a sentence in a given document is **relevant** and belongs in the Secotral Information matrix or not
-  2. A **classifier** that will predict the sector of a sentence that belongs in the Secotral Information matric
+In this round, we simulate the document processing procedure of analysts. In particular, given a document consisting of a number of sentences, a system is asked to:
+- First, **extract informative and relevant sentences**, and ...
+- Second, **classify the extracted sentences** according to the Secotral Information.
 
+In the following, we first explain the dataset and task, and then describe the run file format and evaluation metrics. 
 
 ### Dataset
 
-The primary data for the challenge is, in each provided `sentences_<split>_en.csv` file, the `sentence_text` column. This contains the text of analyzed documents after they have been split into sentences. Each sentence is classified, by data analysts, as relevant or irrelevant (0 or 1 in the `is_relevant` column). If a sentence is marked as relevant (i.e. `is_relevant` column is 1) the `sector_ids` column *may* contain a list of sector ids that this sentence belongs to. Otherwise, the `sector_ids` column is an empty list. The label columns (`is_relevant` and `sector_ids` columns) are provided only for the train and validation splits of the data. Each sentence is uniquely identified by its document id (`doc_id`) and sentence id (`sentence_id`) together.
-We also provide the text of the original documents before splitting them into sentences. Participant are free to use the train and validation documents for any type of training they want. However, it is not allowed to use the test sentences or documents for any kind of training.
-The train/validation/test sets’ are all in English in this round. More languages are coming in future rounds.
-The structure of the provided data is as follows.
+The dataset of this round is available [here](https://deep-cheers-challenge.s3.amazonaws.com/data_round_1.zip). The dataset consists of the following files:
 
-    DFS_CHEERS_Challenge/
-      en/
-        documents_train_en.csv
-        documents_val_en.csv
-        documents_test_en.csv
-        sentences_train_en.csv
-        sentences_val_en.csv
-        sentences_test_en.csv
+    data_round_1/
+      documents_train_en.csv
+      documents_val_en.csv
+      documents_test_en.csv
+      sentences_train_en.csv
+      sentences_val_en.csv
+      sentences_test_en.csv
+      immap_sector_name_to_id.json
+      Terms of Use.txt
+      
+The primary data for the challenge is available in the `sentences_<split>_en.csv` files, containing the information of sentences of the document. Each of these files contain the following columns: 
 
-We will upload our data to the challenge Github page and provide its link here.
-
-#### Columns of sentences*.csv
-- `doc_id`: The identifier of the sentence source document.
-- `sentence_id`: Combined with the corresponding `doc_id`, together they form unique ids for the sentences. Note that values of this column alone are not unique across the dataset.
+- `doc_id`: The identifier of the document, from which the sentence is extracted.
+- `sentence_id`: The identifier of the sentence. Combined with the corresponding `doc_id`, `sentence_id` and `doc_id` form a unique id for each sentence.
 - `sentence_text`: Text of the sentence.
-- `is_relevant`: Determines whether the sentence is relevant (1) or not (0).
-- `sector_ids`: A list of sector ids that this sentence belongs to. If the sector is not specified, the list is empty. Note that a sentence maybe relevant (i.e. `is_relevant` equals 1) but have an empty `sector_ids` list.
+- `is_relevant`: Determines whether the sentence is relevant (1) or not (0) to the information need of the analyst.
+- `sector_ids`: A list of sector ids, to which this sentence belongs to. If the sentence is not assigned to any sector, the list is empty. Note that a sentence maybe relevant (`is_relevant=1`) but have an empty `sector_ids` list. However a non-relevant sentence (`is_relevant=0`) always has an empty `sector_ids` list.
 
-#### Columns of documents*.csv
+
+As mentioned above, each sentence is classified by data analysts as relevant or irrelevant (`0` or `1` in the `is_relevant` column). If a sentence is marked as relevant (i.e. `is_relevant` column is `1`) the `sector_ids` column *may* contain a list of sector ids that this sentence belongs to. Otherwise, the `sector_ids` column is an empty list. The label columns (`is_relevant` and `sector_ids`) are provided only for the train and validation splits of the data. The corrsponding name of each sector is available in `immap_sector_name_to_id.json`.
+
+In addition, in the `documents_<split>_en.csv` files, we provide the text of the original documents, from which the sentences are extracted. Participant are free to use these original documents for any type of training they want. The document files have the following columns:
+
 - `project_name`: We have six projects in this dataset. They are: IMMAP/DFS Syria, Bangladesh, Nigeria, Burkina Faso, RDC, and Colombia.
 - `country_code`: SYR for Syria, BGD for Bangladesh, NGA for Nigeria, BFA Burkina Faso, COD for RDC, and COL for Colombia.
 - `doc_id`: A unique identifier for each document.
 - `doc_text`: The textual content documents.
 - `doc_url`: A url of source documents.
 
-### Output and Evaluation
- 
-#### What Participants are Predicting?
-For each sentence in the test split, the participants are asked to:
-1. Predict the `is_relevant` variable value,
-2. If `is_relevant` equals to 1, predict only one value from the possible `sector_ids` values. We ask participants to do that for the sake of simplicity.
+All documents and sentences in this round are in English.
 
-#### Submission File
-For each (`sentence_id`, `doc_id`) pair in the test set, you have to provide a 0/1 prediction for the `is_relevant` variable as well as only one label from possible `sector_ids`. For example, if the value of `sector_ids` of some sentence is `[1, 5]`, then participants can and should output `1` or `5`. The file should contain a header and have the following format:
+### Task
+
+As mentioned before, this task consists of two consequative steps:
+- First, predicting whether a sentence is relvant, namely the `is_relevant` value, and ...
+- Then, for any sentence *predicted as relevant* (i.e. predicted `is_relevant=1`), output *one* `sector_id` value.
+
+Please consider that in the provided data `sector_ids` can be more than one (a multi-class multi-label setting). However, in this round, we explicitly limit the prediction of sectors to one class (a multi-class single-label setting). In fact, the users are free to exploit the one or multiple sector(s) of a sentence for training, but at inference time, only one sector should be provided.   
+
+
+### Run File Format
+The run (output) file format must be in the CSV format and have the following columns: `doc_id` and `sentence_id` of each sentence in the validation/test set; `0` or `1` prediction value for the `is_relevant` column; `sector_id` column is one predicted sector label if the predicted `is_relevant` is `1`, and otherwise `sector_id` is set to `-1`. For example, if the value of `sector_ids` of some sentence is `[1, 7]`, a possible run file could look like this:
 
     doc_id, sentence_id, is_relevant, sector_id
     0, 0, 0, -1
@@ -100,11 +124,11 @@ For each (`sentence_id`, `doc_id`) pair in the test set, you have to provide a 0
     2, 3, 1,  3
     2, 4, 0, -1
 
-##### Constraints on the submission file:
-- If a sentence has `is_relevant` equals to `0`, then its `sector_id` must be `-1`.
-- If a sentence has `is_relevant` equals to `1`, then its `sector_id` must have a value other than `-1`.
+Please look at [create_random_baseline.py](https://github.com/the-deep/CHEERS-challenge/blob/main/Round_1/create_random_baseline.py) for creating a random baseline for the validation set. If the data is available in the same root path as this script, the following command generated a random baseline run:
 
-#### Evaluation Metrics
+    python create_baseline_random.py
+
+### Evaluation Metrics
 Submissions are evaluated on [F1 Score](https://en.wikipedia.org/wiki/F-score#Definition) for the `is_relevant` variable, and on Accuracy or [Hamming Score](https://link.springer.com/chapter/10.1007/978-3-540-24775-3_5) for the `sector_ids` variable. Finally, to be able to sort the submissions in the leaderboard, we combine these two scores by formulating a new score called `HumImpact` which stands for *Humanitarian Impact*. `HumImpact` is calculated as: `HumImpact = 0.5*F1_score + 0.5*Accuracy`.
 
 Please note the following about the way we calculate Hamming Score that are done for simplifying this challenge round.
@@ -112,20 +136,19 @@ Please note the following about the way we calculate Hamming Score that are done
 2. Sentences with ground truth values of `[]` for the `sector_ids` variable, but the participant predicts other than `-1` will not be penalized.
 3. Because participants are asked to predict only one label from the possible labels for `sector_ids`, the submssions are always penalized for setneces with multiple labels. For example, if a sentence has a value for `sector_ids` of `[2, 4]` and the participant predicts `2` then the accuracy of this example will be `1/2`.
 
-#### Evaluation Script
 The submissions will be evaluated using this [script](https://github.com/the-deep/NLP-Challenge/blob/main/eval.py).
 
 ### Results on Leaderboard
 coming soon...!
 
-# Terms and Conditions
+# <a name="section-terms"></a> Terms and Conditions
 
 The provided datasets are intended for non-commercial research purposes to promote advancement in the field of natural language processing, information retrieval and related areas in the humanitarian sector, and are made available free of charge without extending any license or other intellectual property rights. In particular:
 
 * Any parts of the datasets cannot be publicly shared or hosted (with exception for aggregated findings and visualizations);
 * The datasets can only be used for non-commercial research purposes; Upon violation of any of these terms, your rights to use the dataset will end automatically. The datasets are provided “as is” without warranty. The side granting access to the datasets is not liable for any damages related to use of the dataset.
 
-### Contact
+# <a name="section-contact"></a> Contact Us
 
 If you have any questions regarding technical aspects of the dataset, or how to obtain it, please contact us:
 * Jean-Baptiste Bove (Innovation Lead): [email](mailto:jean@datafriendlyspace.org)
