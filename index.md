@@ -49,59 +49,68 @@ Participants are asked to build build the following:
 
 ### Dataset
 
-The primary data for the challenge is, in each provided `sentences_<split>.csv` file, the `sentence_text` column. This contains the text of analysed documents after they have been split into sentences. Each sentence is classified, by data analysts, as relevant or irrelevant (0 or 1 in the `is_relevant` column). If a sentence is marked as relevant (i.e. `is_relevant` column is 1) the `sector_ids` column may contain a list of sector ids that this sentence belongs to. Otherwise, the `sector_ids` column is an empty list. The label columns (`is_relevant` and `sector_ids` columns) are provided only for the train and validation splits of the data. Each sentence is uniquely identified by its document id (`doc_id`) and sentence id (`sentence_id`) together.
-We also provide the text of the original documents before splitting them into sentences. Participant are free to use the train and validation documents for unsupervised/semi-supervised training. It is not allowed to use the test sentences or documents for any kind of training.
+The primary data for the challenge is, in each provided `sentences_<split>_en.csv` file, the `sentence_text` column. This contains the text of analyzed documents after they have been split into sentences. Each sentence is classified, by data analysts, as relevant or irrelevant (0 or 1 in the `is_relevant` column). If a sentence is marked as relevant (i.e. `is_relevant` column is 1) the `sector_ids` column *may* contain a list of sector ids that this sentence belongs to. Otherwise, the `sector_ids` column is an empty list. The label columns (`is_relevant` and `sector_ids` columns) are provided only for the train and validation splits of the data. Each sentence is uniquely identified by its document id (`doc_id`) and sentence id (`sentence_id`) together.
+We also provide the text of the original documents before splitting them into sentences. Participant are free to use the train and validation documents for any type of training they want. However, it is not allowed to use the test sentences or documents for any kind of training.
 The train/validation/test sets’ are all in English in this round. More languages are coming in future rounds.
 The structure of the provided data is as follows.
 
     DFS_CHEERS_Challenge/
-      documents_train.csv
-      documents_val.csv
-      documents_test.csv
-      sentences_train.csv
-      sentences_val.csv
-      sentences_test.csv
+      en/
+        documents_train_en.csv
+        documents_val_en.csv
+        documents_test_en.csv
+        sentences_train_en.csv
+        sentences_val_en.csv
+        sentences_test_en.csv
 
-TBD details about how to obtain data
+We will upload our data to the challenge Github page and provide its link here.
 
 #### Columns of sentences*.csv
 - `doc_id`: The identifier of the sentence source document.
-- `sentence_id`: A unique identifier for each sentence.
+- `sentence_id`: Combined with the corresponding `doc_id`, together they form unique ids for the sentences. Note that values of this column alone are not unique across the dataset.
 - `sentence_text`: Text of the sentence.
 - `is_relevant`: Determines whether the sentence is relevant (1) or not (0).
-- `sector_ids`: A list of sector ids of that this sentence belongs to. If the sector is not specified, the list is empty. Note that a sentence maybe relevant (i.e. `is_relevant` equals 1) but have an empty `sector_ids` list.
+- `sector_ids`: A list of sector ids that this sentence belongs to. If the sector is not specified, the list is empty. Note that a sentence maybe relevant (i.e. `is_relevant` equals 1) but have an empty `sector_ids` list.
 
 #### Columns of documents*.csv
 - `project_name`: We have six projects in this dataset. They are: IMMAP/DFS Syria, Bangladesh, Nigeria, Burkina Faso, RDC, and Colombia.
 - `country_code`: SYR for Syria, BGD for Bangladesh, NGA for Nigeria, BFA Burkina Faso, COD for RDC, and COL for Colombia.
 - `doc_id`: A unique identifier for each document.
-- `doc_text`: The textual contents of each document.
-- `doc_url`: A url of each document.
+- `doc_text`: The textual content documents.
+- `doc_url`: A url of source documents.
 
 ### Output and Evaluation
-
+ 
 #### What Participants are Predicting?
 For each sentence in the test split, the participants are asked to:
-1. Predict each sentence the `is_relevant` variable,
-2. If a sentence has `is_relevant` equals to 1, predict its `sector_ids`.
+1. Predict the `is_relevant` variable value,
+2. If `is_relevant` equals to 1, predict only one value from the possible `sector_ids` values. We ask participants to do that for the sake of simplicity.
 
 #### Submission File
-For each (`sentence_id`, `doc_id`) pair in the test set, you have to predict a 0/1 prediction for the `is_relevant` variable as well as a list of `sector_ids`. The file should contain a header and have the following format:
+For each (`sentence_id`, `doc_id`) pair in the test set, you have to provide a 0/1 prediction for the `is_relevant` variable as well as only one label from possible `sector_ids`. For example, if the value of `sector_ids` of some sentence is `[1, 5]`, then participants can and should output `1` or `5`. The file should contain a header and have the following format:
 
-    doc_id, sentence_id, is_relevant, sector_ids
-    0, 0, 0, []
-    0, 1, 1, [1, 3]
-    0, 2, 0, [2, 4]
-    1, 0, 1, [0, 1, 2, 3, 4]
-    2, 0, 1, [4]
-    2, 1, 1, []
-    2, 2, 1, []
-    2, 3, 1, [1]
-    2, 4, 0, []
+    doc_id, sentence_id, is_relevant, sector_id
+    0, 0, 0, -1
+    0, 1, 1,  1
+    0, 2, 0, -1
+    1, 0, 1,  4
+    2, 0, 1,  2
+    2, 1, 1,  7
+    2, 2, 1, -1
+    2, 3, 1,  3
+    2, 4, 0, -1
 
+##### Constraints on the submission file:
+- If a sentence has `is_relevant` equals to `0`, then its `sector_id` must be `-1`.
+- If a sentence has `is_relevant` equals to `1`, then its `sector_id` must have a value other than `-1`.
 
 #### Evaluation Metrics
-Submissions are evaluated on [F1 Score](https://en.wikipedia.org/wiki/F-score#Definition) for the `is_relevant` variable, and on Accuracy or ([Hamming Score](https://link.springer.com/chapter/10.1007/978-3-540-24775-3_5)) for `sector_ids` variable.
+Submissions are evaluated on [F1 Score](https://en.wikipedia.org/wiki/F-score#Definition) for the `is_relevant` variable, and on Accuracy or [Hamming Score](https://link.springer.com/chapter/10.1007/978-3-540-24775-3_5) for the `sector_ids` variable. Finally, to be able to sort the submissions in the leaderboard, we combine these two scores by formulating a new score called `HumImpact` which stands for *Humanitarian Impact*. `HumImpact` is calculated as: `HumImpact = 0.5*F1_score + 0.5*Accuracy`.
+
+Please note the following about the way we calculate Hamming Score that are done for simplifying this challenge round.
+1. Hamming Score is only calculated for sentences with `is_relevant` *predicted* as `1`.
+2. Sentences with ground truth values of `[]` for the `sector_ids` variable, but the participant predicts other than `-1` will not be penalized.
+3. Because participants are asked to predict only one label from the possible labels for `sector_ids`, the submssions are always penalized for setneces with multiple labels. For example, if a sentence has a value for `sector_ids` of `[2, 4]` and the participant predicts `2` then the accuracy of this example will be `1/2`.
 
 #### Evaluation Script
 The submissions will be evaluated using this [script](https://github.com/the-deep/NLP-Challenge/blob/main/eval.py).
