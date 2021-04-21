@@ -170,6 +170,6 @@ The provided datasets are intended for non-commercial research purposes to promo
 If you have any questions regarding technical aspects of the dataset, or how to obtain it, please contact us:
 * Jean-Baptiste Bove (Innovation Lead): [email](mailto:jean@datafriendlyspace.org)
 * Abdullah Al Nahas (R&D): [email](mailto:abdullah@datafriendlyspace.org)
-* Navid Rekab-Saz (Academic Advisor): [webpage](http://navid-rekabsaz.com/)
+* Navid Rekab-Saz (Academic Advisor): [webpage](https://navid-rekabsaz.github.io/)
 
 [comment]: ![image](https://user-images.githubusercontent.com/71701125/112473998-53198600-8d6f-11eb-908c-060ae568226c.png)
