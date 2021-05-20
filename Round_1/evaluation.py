@@ -1,6 +1,7 @@
 import argparse
 from ast import literal_eval
 
+import numpy as np
 import pandas as pd
 from sklearn.metrics import precision_recall_fscore_support
 
@@ -32,7 +33,7 @@ df_pred = pd.read_csv(
 
 
 def hamming_score(y_true, y_pred):
-    # https://link.springer.com/chapter/10.1007/978-3-540-24775-3_5
+    
     score = 0
     empty_true = 0
     for yt, yp in zip(y_true, y_pred):
@@ -42,6 +43,21 @@ def hamming_score(y_true, y_pred):
         yt = set(yt)
         score += 1 / (len(yt) + 1)
     return score / (len(y_true) - empty_true)
+
+def hamming_score(y_true, y_pred):
+    # https://link.springer.com/chapter/10.1007/978-3-540-24775-3_5
+    # please check the source: https://github.com/varunshenoy/simple-metrics/blob/master/simple-metrics.py
+    acc_list = []
+    for yt, yp in zip(y_true, y_pred):
+        set_true = set(yt)
+        set_pred = set(yp)
+        tmp_a = None
+        if len(set_true) == 0 and len(set_pred) == 0:
+            tmp_a = 1
+        else:
+            tmp_a = len(set_true & set_pred) / len(set_true | set_pred)
+        acc_list.append(tmp_a)
+    return np.mean(acc_list)
 
 def evaluate (df_pred, df_true):
     # sanity check #1
