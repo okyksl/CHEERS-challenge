@@ -31,19 +31,6 @@ df_pred = pd.read_csv(
     args.runfile_path, usecols=["doc_id", "sentence_id", "is_relevant", "sector_id"],
 )
 
-
-def hamming_score(y_true, y_pred):
-    
-    score = 0
-    empty_true = 0
-    for yt, yp in zip(y_true, y_pred):
-        if yt == []:
-            empty_true += 1
-            continue
-        yt = set(yt)
-        score += 1 / (len(yt) + 1)
-    return score / (len(y_true) - empty_true)
-
 def hamming_score(y_true, y_pred):
     # https://link.springer.com/chapter/10.1007/978-3-540-24775-3_5
     # please check the source: https://github.com/varunshenoy/simple-metrics/blob/master/simple-metrics.py
